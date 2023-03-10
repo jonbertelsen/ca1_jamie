@@ -24,6 +24,13 @@ public class Person {
     @Column(name = "lastName", nullable = false, length = 45)
     private String lastName;
 
+    public Person(String firstName, String lastName, String phone, String email, Address address) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.address = address;
+    }
+
     public String getLastName() {
         return lastName;
     }
@@ -62,5 +69,15 @@ public class Person {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Person(Address address, String email, String firstName, String lastName) {
+        this.address = address;
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public Person() {
     }
 }

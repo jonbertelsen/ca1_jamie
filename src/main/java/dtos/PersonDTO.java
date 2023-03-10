@@ -1,6 +1,9 @@
 package dtos;
 
+import entities.Person;
+
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 public class PersonDTO implements Serializable {
@@ -17,6 +20,7 @@ public class PersonDTO implements Serializable {
         this.firstName = firstName;
         this.lastName = lastName;
     }
+
 
     public Integer getId() {
         return id;
