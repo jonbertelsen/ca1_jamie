@@ -4,14 +4,14 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 
-public class EventDeciderDto implements Serializable {
+public class EventDeciderDTO implements Serializable {
     private final Integer id;
-    private final HobbyDto hobby;
+    private final HobbyDTO hobby;
     private final String hobby1;
     private final String category;
     private final Instant date;
 
-    public EventDeciderDto(Integer id, HobbyDto hobby, String hobby1, String category, Instant date) {
+    public EventDeciderDTO(Integer id, HobbyDTO hobby, String hobby1, String category, Instant date) {
         this.id = id;
         this.hobby = hobby;
         this.hobby1 = hobby1;
@@ -23,7 +23,7 @@ public class EventDeciderDto implements Serializable {
         return id;
     }
 
-    public HobbyDto getHobby() {
+    public HobbyDTO getHobby() {
         return hobby;
     }
 
@@ -43,7 +43,7 @@ public class EventDeciderDto implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        EventDeciderDto entity = (EventDeciderDto) o;
+        EventDeciderDTO entity = (EventDeciderDTO) o;
         return Objects.equals(this.id, entity.id) &&
                 Objects.equals(this.hobby, entity.hobby) &&
                 Objects.equals(this.hobby1, entity.hobby1) &&

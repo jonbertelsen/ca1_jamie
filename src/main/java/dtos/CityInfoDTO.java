@@ -3,10 +3,10 @@ package dtos;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class HobbyDto implements Serializable {
+public class CityInfoDTO implements Serializable {
     private final Integer id;
 
-    public HobbyDto(Integer id) {
+    public CityInfoDTO(Integer id) {
         this.id = id;
     }
 
@@ -18,7 +18,7 @@ public class HobbyDto implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        HobbyDto entity = (HobbyDto) o;
+        CityInfoDTO entity = (CityInfoDTO) o;
         return Objects.equals(this.id, entity.id);
     }
 

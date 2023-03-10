@@ -3,12 +3,12 @@ package dtos;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class PhoneDto implements Serializable {
+public class PhoneDTO implements Serializable {
     private final Integer id;
     private final Integer number;
     private final String description;
 
-    public PhoneDto(Integer id, Integer number, String description) {
+    public PhoneDTO(Integer id, Integer number, String description) {
         this.id = id;
         this.number = number;
         this.description = description;
@@ -30,7 +30,7 @@ public class PhoneDto implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PhoneDto entity = (PhoneDto) o;
+        PhoneDTO entity = (PhoneDTO) o;
         return Objects.equals(this.id, entity.id) &&
                 Objects.equals(this.number, entity.number) &&
                 Objects.equals(this.description, entity.description);

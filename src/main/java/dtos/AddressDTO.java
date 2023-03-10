@@ -3,14 +3,14 @@ package dtos;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class AddressDto implements Serializable {
+public class AddressDTO implements Serializable {
     private final Integer id;
-    private final CityInfoDto cityInfo;
+    private final CityInfoDTO cityInfo;
     private final String street;
     private final String streetNumber;
     private final String floor;
 
-    public AddressDto(Integer id, CityInfoDto cityInfo, String street, String streetNumber, String floor) {
+    public AddressDTO(Integer id, CityInfoDTO cityInfo, String street, String streetNumber, String floor) {
         this.id = id;
         this.cityInfo = cityInfo;
         this.street = street;
@@ -22,7 +22,7 @@ public class AddressDto implements Serializable {
         return id;
     }
 
-    public CityInfoDto getCityInfo() {
+    public CityInfoDTO getCityInfo() {
         return cityInfo;
     }
 
@@ -42,7 +42,7 @@ public class AddressDto implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AddressDto entity = (AddressDto) o;
+        AddressDTO entity = (AddressDTO) o;
         return Objects.equals(this.id, entity.id) &&
                 Objects.equals(this.cityInfo, entity.cityInfo) &&
                 Objects.equals(this.street, entity.street) &&
