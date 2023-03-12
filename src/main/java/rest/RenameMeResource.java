@@ -33,13 +33,12 @@ public class RenameMeResource {
        
         long count = FACADE.getRenameMeCount();
         //System.out.println("--------------->"+count);
-        System.out.println("se her");
         return "{\"count\":"+count+"}";  //Done manually so no need for a DTO
 
     }
 
     @GET
-    @Path("test")
+    @Path("/test")
     @Produces({MediaType.APPLICATION_JSON})
     public String ourTest() {
 
