@@ -20,11 +20,11 @@ public class RenameMeResource {
     private static final FacadeExample FACADE =  FacadeExample.getFacadeExample(EMF);
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
             
-    @GET
+    /*@GET
     @Produces({MediaType.APPLICATION_JSON})
     public String demo() {
         return "{\"msg\":\"Hello from Jon\"}";
-    }
+    }*/
 
     @GET
     @Path("count")
