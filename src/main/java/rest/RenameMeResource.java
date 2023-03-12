@@ -2,14 +2,18 @@ package rest;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import dtos.PersonDTO;
 import dtos.RenameMeDTO;
-import entities.RenameMe;
+import entities.Person;
+import facades.PersonFacade;
 import utils.EMF_Creator;
 import facades.FacadeExample;
 import javax.persistence.EntityManagerFactory;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
+import java.util.List;
 
 //Todo Remove or change relevant parts before ACTUAL use
 @Path("xxx")
@@ -19,12 +23,14 @@ public class RenameMeResource {
        
     private static final FacadeExample FACADE =  FacadeExample.getFacadeExample(EMF);
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-            
-    /*@GET
+
+    private static final PersonFacade personFacade =  PersonFacade.getPersonFacade(EMF);
+
+    @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String demo() {
         return "{\"msg\":\"Hello from Jon\"}";
-    }*/
+    }
 
     @GET
     @Path("count")
@@ -38,19 +44,22 @@ public class RenameMeResource {
     }
 
     @GET
-    //@Path("")
+    @Path("persons")
     @Produces({MediaType.APPLICATION_JSON})
-    public String ourTest() {
+    public List<Person> getPersons() {
+        List<Person> persons = new ArrayList<>();
+        persons = personFacade.getAllPersons();
 
-        //System.out.println("--------------->"+count);
-        return  "{\"msg\":\"kommer vi herind\"}";
+        return persons;
     }
-    @POST
+
+    /*@POST
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
-    public Response postExample(String input){
-        RenameMeDTO rmdto = GSON.fromJson(input, RenameMeDTO.class);
+    public Response addPerson(PersonDTO){
+        RenameMeDTO rmdto = GSON.fromJson(PersonDTO), RenameMeDTO.class);
         System.out.println(rmdto);
         return Response.ok().entity(rmdto).build();
-    }
+    }*/
+
 }

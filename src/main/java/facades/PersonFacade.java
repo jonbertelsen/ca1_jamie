@@ -30,17 +30,19 @@ public class PersonFacade {
      * Rename Class to a relevant name Add add relevant facade methods
      */
 
-    /*
 
-    public PersonDTO getAllPersons() {
+
+    public List<Person> getAllPersons() {
         EntityManager em = emf.createEntityManager();
         TypedQuery<Person> query = em.createQuery("SELECT p FROM Person p", Person.class);
+        System.out.println(query+ "også lige her vi mangler ole igen");
         List<Person> persons = query.getResultList();
+        System.out.println("kiger her min seje ven, vi mangler ole"+ persons);
 
-        return new PersonDTO(persons);
+        return persons;
     }
 
-    public PersonDTO getPerson(int id) {
+    /*public PersonDTO getPerson(int id) {
         EntityManager em = emf.createEntityManager();
         TypedQuery<Person> query = em.createQuery("SELECT p FROM Person p where p.id = :id", Person.class);
         query.setParameter("id", id);
@@ -62,7 +64,7 @@ public class PersonFacade {
 
     public PersonDTO editPerson(int id) {
         EntityManager em = emf.createEntityManager();
-    }
+    }*/
 
-     */
+
 }

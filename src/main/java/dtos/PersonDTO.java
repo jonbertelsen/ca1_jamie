@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Objects;
 
 public class PersonDTO implements Serializable {
-    private final Integer id;
-    private final AddressDTO address;
-    private final String email;
-    private final String firstName;
-    private final String lastName;
+    private Integer id;
+    private AddressDTO address;
+    private String email;
+    private String firstName;
+    private String lastName;
 
     public PersonDTO(Integer id, AddressDTO address, String email, String firstName, String lastName) {
         this.id = id;
@@ -19,6 +19,10 @@ public class PersonDTO implements Serializable {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    public PersonDTO(List<Person> persons) {
+
     }
 
 
