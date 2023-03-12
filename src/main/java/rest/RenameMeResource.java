@@ -38,12 +38,12 @@ public class RenameMeResource {
     }
 
     @GET
-    @Path("/test")
+    //@Path("")
     @Produces({MediaType.APPLICATION_JSON})
     public String ourTest() {
 
         //System.out.println("--------------->"+count);
-        return  "{\"msg\":\"Hello from Jon\"}";
+        return  "{\"msg\":\"kommer vi herind\"}";
     }
     @POST
     @Produces({MediaType.APPLICATION_JSON})
