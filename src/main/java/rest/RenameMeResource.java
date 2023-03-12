@@ -35,6 +35,15 @@ public class RenameMeResource {
         //System.out.println("--------------->"+count);
         return "{\"count\":"+count+"}";  //Done manually so no need for a DTO
     }
+
+    @GET
+    @Path("test")
+    @Produces({MediaType.APPLICATION_JSON})
+    public String ourTest() {
+
+        //System.out.println("--------------->"+count);
+        return  "{\"msg\":\"Hello from Jon\"}";
+    }
     @POST
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
