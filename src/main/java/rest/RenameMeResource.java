@@ -2,6 +2,7 @@ package rest;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import dtos.AddressDTO;
 import dtos.PersonDTO;
 import dtos.RenameMeDTO;
 import entities.Person;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //Todo Remove or change relevant parts before ACTUAL use
-@Path("xxx")
+@Path("person")
 public class RenameMeResource {
 
     private static final EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory();
@@ -53,6 +54,15 @@ public class RenameMeResource {
         return persons;
     }
 
+    @GET
+    @Path("person/{id}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Person getPersonById(@PathParam("id") int id) {
+        Person person = personFacade.getPerson(id);
+
+        return person;
+    }
+
     /*@POST
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
@@ -62,4 +72,12 @@ public class RenameMeResource {
         return Response.ok().entity(rmdto).build();
     }*/
 
+    @POST
+    @Produces({MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_JSON})
+    public Response createPerson(String content){
+        PersonDTO pd = GSON.fromJson(content, PersonDTO.class);
+        Person p = personFacade.addPerson(pd.getFirstName(), pd.getLastName(), pd.getEmail(), (List<AddressDTO>) pd.getAddress());
+        return Response.ok(GSON.toJson(new PersonDTO(p))).build();
+    }
 }

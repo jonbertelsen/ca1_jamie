@@ -3,7 +3,6 @@ package dtos;
 import entities.Person;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Objects;
 
 public class PersonDTO implements Serializable {
@@ -21,7 +20,7 @@ public class PersonDTO implements Serializable {
         this.lastName = lastName;
     }
 
-    public PersonDTO(List<Person> persons) {
+    public PersonDTO(Person persons) {
 
     }
 

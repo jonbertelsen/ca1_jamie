@@ -1,6 +1,6 @@
 package facades;
 
-import dtos.PersonDTO;
+import dtos.AddressDTO;
 import entities.Address;
 import entities.Person;
 
@@ -35,11 +35,18 @@ public class PersonFacade {
     public List<Person> getAllPersons() {
         EntityManager em = emf.createEntityManager();
         TypedQuery<Person> query = em.createQuery("SELECT p FROM Person p", Person.class);
-        System.out.println(query+ "også lige her vi mangler ole igen");
         List<Person> persons = query.getResultList();
-        System.out.println("kiger her min seje ven, vi mangler ole"+ persons);
 
         return persons;
+    }
+
+    public Person getPerson(int id) {
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Person> query = em.createQuery("SELECT p FROM Person p where p.id = :id", Person.class);
+        query.setParameter("id", id);
+        Person person = query.getSingleResult();
+
+        return person;
     }
 
     /*public PersonDTO getPerson(int id) {
@@ -49,19 +56,20 @@ public class PersonFacade {
         Person person = query.getSingleResult();
 
         return new PersonDTO(person);
-    }
+    }*/
 
-    public PersonDTO addPerson(String firstName, String lastName, String phone, String email, Address address) {
+    public Person addPerson(String firstName, String lastName, String email, List<AddressDTO> ad) {
         EntityManager em = emf.createEntityManager();
-        Person person = new Person(firstName, lastName, phone, email, address);
+        Person person = new Person(firstName, lastName, email, (Address) ad);
         em.getTransaction().begin();
         em.persist(person);
         em.getTransaction().commit();
         em.close();
 
-        return new PersonDTO(person);
+        return person;
     }
 
+    /*
     public PersonDTO editPerson(int id) {
         EntityManager em = emf.createEntityManager();
     }*/

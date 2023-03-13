@@ -10,10 +10,10 @@ public class Person {
     @Column(name = "idperson", nullable = false)
     private Integer id;
 
-   /* @MapsId
+   @MapsId
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "idPerson", nullable = false)
-    private Address address;*/
+    private Address address;
 
     @Column(name = "email", nullable = false, length = 45)
     private String email;
@@ -24,16 +24,18 @@ public class Person {
     @Column(name = "lastname", nullable = false, length = 45)
     private String lastName;
 
-    public Person(String firstName, String lastName, String phone, String email, Address address) {
+    public Person(String firstName, String lastName, String email, Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        //this.address = address;
+        this.address = address;
     }
 
     public String getLastName() {
         return lastName;
     }
+
+
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
@@ -55,13 +57,13 @@ public class Person {
         this.email = email;
     }
 
-   /* public Address getAddress() {
+    public Address getAddress() {
         return address;
-    }*/
+    }
 
-   /* public void setAddress(Address address) {
+    public void setAddress(Address address) {
         this.address = address;
-    }*/
+    }
 
     public Integer getId() {
         return id;
