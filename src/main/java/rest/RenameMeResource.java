@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import dtos.AddressDTO;
 import dtos.PersonDTO;
 import dtos.RenameMeDTO;
+import entities.Address;
 import entities.Person;
 import facades.PersonFacade;
 import utils.EMF_Creator;
@@ -77,7 +78,7 @@ public class RenameMeResource {
     @Consumes({MediaType.APPLICATION_JSON})
     public Response createPerson(String content){
         PersonDTO pd = GSON.fromJson(content, PersonDTO.class);
-        Person p = personFacade.addPerson(pd.getFirstName(), pd.getLastName(), pd.getEmail(), (List<AddressDTO>) pd.getAddress());
+        Person p = personFacade.addPerson(pd.getFirstName(), pd.getLastName(), pd.getEmail());
         return Response.ok(GSON.toJson(new PersonDTO(p))).build();
     }
 }
